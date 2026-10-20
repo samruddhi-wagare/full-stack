@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Happy Birthday ♡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="hearts"></div>
+    <div id="lock">
+      <div id="lockHearts"></div>
+      <div class="card">
+        <div class="s" style="font-size: 2rem">🔒</div>
+        <h2 style="padding: 0">Happy Birthday</h2>
+        <p class="sub" style="margin-bottom: 0.4rem">
+          to my favourite person ❤️
+        </p>
+        <small style="letter-spacing: 0.1em">🥹💕Enter the date we met for the very first time(Try with wrong answer! 😂)</small>
+        <div class="code" id="code"></div>
+        <p class="sub" id="hint">
+          <span style="color: #7a1f3d">♥</span>
+          <span style="color: #c9a36b">✦</span>
+          <span style="color: #7a1f3d">♥</span> 
+        </p>
+      </div>
+    </div>
+    <div id="load">
+  <canvas id="stars"></canvas>
+  <div id="introHearts"></div>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <div id="ht"><span id="htt"></span></div>
+  <svg id="hh" class="hh" viewBox="0 0 32 29" aria-hidden="true">
+    <defs>
+      <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ff5d73" />
+        <stop offset="1" stop-color="#d1002f" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#hg)" d="M16 28C8 22 1 16.5 1 9.5 1 4.8 4.6 1.5 8.7 1.5c2.9 0 5.6 1.6 7.3 4.5 1.7-2.9 4.4-4.5 7.3-4.5C27.4 1.5 31 4.8 31 9.5 31 16.5 24 22 16 28z" />
+    <path fill="#fff" opacity=".35" d="M8.2 5c-2.3.4-4 2.2-4 4.6 0 .8.3 1.4.8 1 .5-.5.3-1.7 1.2-2.8.7-.9 1.6-1.4 2.2-1.6.6-.3.5-1.3-.2-1.2z" />
+  </svg>
+</div>
+    <div id="main">
+      <section class="dark">
+        <h2>Memory Balloons</h2>
+        <p class="sub">Click each balloon to reveal a hidden memory ❤️</p>
+        <div class="row" id="bals"></div>
+      </section>
+        <section class="zig">
+        <h2>Your Words</h2>
+        <p class="sub">Straight from your heart ♥</p>
+        <div class="gal" id="scat"></div>
+      </section>
+      <section class="dark zig">
+      <h2>Your Soundtrack</h2>
+      <p class="sub">The songs that feel like you. 🎧❤️</p>
+        <div class="player">
+          <div class="vinyl" id="vin"></div>
+          <div class="s" style="font-size: 1.7rem" id="tn"></div>
+          <small id="ta" style="color: var(--gold)"></small>
+          <div class="ctl">
+            <button id="pv">⏮</button><button class="pl" id="pp">▶</button
+            ><button id="nx">⏭</button>
+          </div>
+          <div class="eq" id="eq"><b></b><b></b><b></b><b></b></div>
+          <div class="list" id="pl" style="margin-top: 1rem"></div>
+        </div>
+      </section>
+      <section class="zig" style="--c: var(--wine); padding-bottom: 3rem">
+  <h2>Our Gallery</h2>
+  <p class="sub">Drag to explore our memories 🫂</p>
+  <div class="cf" id="gal"></div>
+  <p class="cap" id="galcap"></p>
+</section>
+      <section class="dark zig">
+        <h2>Letters For You</h2>
+        <p class="sub">Click an envelope to open ❤️</p>
+        <div class="row" id="envs" style="gap: 26px; margin-top: 2rem"></div>
+      </section>
+      <section class="zig" id="fin" style="min-height:90vh">
+<div class="step gifts on" id="s1">
+    <h2>Mystery Gifts</h2>
+    <p class="sub">Find all hidden gifts 🎁</p>
+    <p class="s" id="gc" style="text-align:center;font-size:1.6rem">0/3 gifts found</p>
+    <div class="jars" id="jars"></div>
+  </div>
+ <div class="step wish" id="s2">
+    <h2>Make a Wish</h2>
+    <div class="bday" id="cake"></div>
+    <p class="s" style="text-align:center;font-size:1.2rem">Click a candle to blow it out ✨</p>
+    <div class="msg" id="wm">Wishing Youuu Happiest Birthday, Siddddd <br><span class="heart-beat" role="img" aria-label="Beating heart">❤️</span><br>I’m so proud of you,bala. 🥹<br> I can’t wait to see you achieve all your dreams, reach every height you wish for, and become incredibly successful in life. <br>Ur Samuuuuudi will always be cheering for you and believing in you. May you get all the happiness, success and everything your heart dreams of. 🫶🏻✨<br>I lOVE YOU SOOOO MUCH!❤️‍🩹🧿<br>— Yours, 🌻
+</div>
+  </div>
+</section>
+    </div>
+    <button
+      id="bgMusicToggle"
+      class="music-toggle"
+      type="button"
+      aria-label="Start background music"
+      aria-pressed="false"
+    >
+      ♪ Start background music
+    </button>
+    <div class="modal" id="md">
+      <div class="box">
+<button class="x" onclick="closeMd()">✕</button>
+        <div id="mb"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
