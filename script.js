@@ -4,7 +4,7 @@ const C = {
   memories: [
     {
       e: "💬",
-      d: "23 july 2026[3:33]-15 aug 2026",
+      d: "23 july 2026-[3:33]-15 aug 2026",
       img: "images/memory1.png",
       blur: true,
       t: "From late-night conversations that brought us closer to the moment we finally said those three words— everything between us felt even more beautiful❤️.",
