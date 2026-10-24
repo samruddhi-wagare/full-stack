@@ -4,7 +4,7 @@ const C = {
   memories: [
     {
       e: "💬",
-      d: "23 july 2026-[3:33]-15 aug 2026",
+      d: "23 july 2026[3:33]-15 aug 2026",
       img: "images/memory1.png",
       blur: true,
       t: "From late-night conversations that brought us closer to the moment we finally said those three words— everything between us felt even more beautiful❤️.",
@@ -15,7 +15,7 @@ const C = {
       img: "images/memory2.jpeg",
       blur: true,
       d: "15 sept 2026 ",
-      t: "Our first face-to-face meeting, our first “I love you,” and the first time our hand  s found each other. 🫶"
+      t: "Our first face-to-face meeting, our first “I love you,” and the first time our hand  s found each other. 🫶",
     },
     {
       e: "🏍️",
@@ -39,16 +39,36 @@ const C = {
       t: "Every tiny moment, every smile, every silly conversation — the little things that quietly became my favorite memories of us.",
     },
   ],
-gallery: [
- { s: "images/img1.jpeg", t: "A moment we never had, but somehow feels real", n: "A little dream of us ✨❤️" },
-{ s: "images/img13.jpeg", t: "If dreams could turn into memories", n: "I’d choose us, every time 🤍" },
-{ s: "images/img3.jpeg", t: "And then, we finally met", n: "The beginning of our real memories ❤️" },
-{ s: "images/img9.jpeg", t: "The day the picture became a memory", n: "One of my favorite days with you 🫶" },
-{ s: "images/img12.jpeg", t: "Where our little memories began", n: "A moment I’ll always keep close 🤍" },
-],
+  gallery: [
+    {
+      s: "images/img1.jpeg",
+      t: "A moment we never had, but somehow feels real",
+      n: "A little dream of us ✨❤️",
+    },
+    {
+      s: "images/img13.jpeg",
+      t: "If dreams could turn into memories",
+      n: "I’d choose us, every time 🤍",
+    },
+    {
+      s: "images/img3.jpeg",
+      t: "And then, we finally met",
+      n: "The beginning of our real memories ❤️",
+    },
+    {
+      s: "images/img9.jpeg",
+      t: "The day the picture became a memory",
+      n: "One of my favorite days with you 🫶",
+    },
+    {
+      s: "images/img12.jpeg",
+      t: "Where our little memories began",
+      n: "A moment I’ll always keep close 🤍",
+    },
+  ],
   letters: [
     "My dearest, on this special day I want you to know that every moment I've spent with you has been the greatest gift of my life.",
-"Shonuuuuu You’re such a wonderful, responsible, and caring person. ❤️ The way you respect everyone and do everything you can for your family makes me admire you even more. I love you, your personality, and the way you think. 🥹❤️ Please never change these beautiful things about yourself. 🫶🏻✨",
+    "Shonuuuuu You’re such a wonderful, responsible, and caring person. ❤️ The way you respect everyone and do everything you can for your family makes me admire you even more. I love you, your personality, and the way you think. 🥹❤️ Please never change these beautiful things about yourself. 🫶🏻✨",
     "Thank you for always being there, for understanding me, supporting me, and making my life a little more beautiful. ❤️Happy Birthday to the one I want beside me, always and forever. 🫶✨",
   ],
   songs: [
@@ -69,11 +89,26 @@ gallery: [
     },
   ],
   gifts: [
-    { e: "🎀", ok: 1, top: "💐", t: "You found a box full of love, hugs, and birthday kisses ❤️" },
+    {
+      e: "🎀",
+      ok: 1,
+      top: "💐",
+      t: "You found a box full of love, hugs, and birthday kisses ❤️",
+    },
     { e: "📦", ok: 0 },
-    { e: "🧸", ok: 1, top: "🧸", t: "Your own pocket-sized hug, whenever you need one 🤗" },
+    {
+      e: "🧸",
+      ok: 1,
+      top: "🧸",
+      t: "Your own pocket-sized hug, whenever you need one 🤗",
+    },
     { e: "🎁", ok: 0 },
-    { e: "💝", ok: 1, top: "💌", t: "A little love note that says: you are my favourite makadaaaa 🙈" },
+    {
+      e: "💝",
+      ok: 1,
+      top: "💌",
+      t: "A little love note that says: you are my favourite makadaaaa 🙈",
+    },
   ],
 };
 /* ==================================== */
@@ -84,9 +119,7 @@ const $ = (id) => document.getElementById(id),
 const introAudio = new Audio("music/happybirthday.mp3.webm");
 introAudio.preload = "auto";
 introAudio.load();
-const backgroundAudio = new Audio(
-  "music/bgmusic.mp3",
-);
+const backgroundAudio = new Audio("music/bgmusic.mp3");
 backgroundAudio.preload = "auto";
 backgroundAudio.loop = true;
 backgroundAudio.volume = 0.2;
@@ -121,8 +154,14 @@ setInterval(() => {
 
 // falling hearts (date page + intro)
 function heartRain(layer, o) {
-  const { every = 380, sizes = [12, 32], life = [7, 13], alpha = [0.55, 0.95],
-    set = ["❤️", "💗", "💖", "💕", "🩷", "✨"], alive } = o;
+  const {
+    every = 380,
+    sizes = [12, 32],
+    life = [7, 13],
+    alpha = [0.55, 0.95],
+    set = ["❤️", "💗", "💖", "💕", "🩷", "✨"],
+    alive,
+  } = o;
   const r = (a, b) => a + Math.random() * (b - a);
   const spawn = (pre) => {
     const h = document.createElement("i");
@@ -141,18 +180,25 @@ function heartRain(layer, o) {
   };
   const t = setInterval(() => {
     if (alive()) spawn();
-    else { clearInterval(t); layer.remove(); }
+    else {
+      clearInterval(t);
+      layer.remove();
+    }
   }, every);
   for (let i = 0; i < 12; i++) spawn(true);
 }
 
 // red heart pops in + a burst of small hearts
 function popHeart() {
-  const hh = $("hh"), L = $("introHearts");
+  const hh = $("hh"),
+    L = $("introHearts");
   hh.classList.add("on");
-  const b = hh.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+  const b = hh.getBoundingClientRect(),
+    cx = b.left + b.width / 2,
+    cy = b.top + b.height / 2;
   for (let i = 0; i < 16; i++) {
-    const p = document.createElement("i"), a = (i / 16) * Math.PI * 2 + Math.random() * 0.4,
+    const p = document.createElement("i"),
+      a = (i / 16) * Math.PI * 2 + Math.random() * 0.4,
       d = 70 + Math.random() * 90;
     p.textContent = ["❤️", "💗", "💖", "✨"][i % 4];
     p.style.cssText = `position:absolute;left:${cx}px;top:${cy}px;font-style:normal;margin:-8px 0 0 -8px;font-size:${10 + Math.random() * 12}px`;
@@ -160,9 +206,15 @@ function popHeart() {
     p.animate(
       [
         { transform: "translate(0,0) scale(.3)", opacity: 1 },
-        { transform: `translate(${Math.cos(a) * d}px,${Math.sin(a) * d - 20}px) scale(1.1)`, opacity: 0 },
+        {
+          transform: `translate(${Math.cos(a) * d}px,${Math.sin(a) * d - 20}px) scale(1.1)`,
+          opacity: 0,
+        },
       ],
-      { duration: 1300 + Math.random() * 500, easing: "cubic-bezier(.15,.7,.3,1)" },
+      {
+        duration: 1300 + Math.random() * 500,
+        easing: "cubic-bezier(.15,.7,.3,1)",
+      },
     ).onfinish = () => p.remove();
   }
 }
@@ -213,7 +265,10 @@ function intro() {
   const introStartedAt = performance.now();
   $("load").style.display = "flex";
   heartRain($("introHearts"), {
-    every: 520, sizes: [10, 22], alpha: [0.35, 0.7], set: ["❤️", "💗", "💖", "💕"],
+    every: 520,
+    sizes: [10, 22],
+    alpha: [0.35, 0.7],
+    set: ["❤️", "💗", "💖", "💕"],
     alive: () => $("load").style.display !== "none",
   });
   introAudio.currentTime = 0;
@@ -272,7 +327,8 @@ function intro() {
     offset += duration;
     return segment;
   });
-  let faded = false, hearted = false;
+  let faded = false,
+    hearted = false;
   const animation = setInterval(() => {
     const elapsed = performance.now() - introStartedAt;
     for (const segment of timedSegments) {
@@ -304,7 +360,6 @@ function intro() {
     startBackgroundMusic();
   }, introDuration);
 }
-
 function obs() {
   const o = new IntersectionObserver(
     (es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
@@ -328,23 +383,34 @@ $("bals").onclick = (e) => {
   const pic = m.img
     ? `<img class="memory-photo${m.blur ? " blurred" : ""}" src="${m.img}" alt="" draggable="false">`
     : `<div class="ph"><div style="font-size:2.6rem">${m.e}</div></div>`;
-  show(`<div class="memory-card">${pic}${m.d ? `<div class="memory-when s">${m.d}</div>` : ""}<p class="s" style="font-size:1.4rem">${m.t}</p></div>`);
+  show(
+    `<div class="memory-card">${pic}${m.d ? `<div class="memory-when s">${m.d}</div>` : ""}<p class="s" style="font-size:1.4rem">${m.t}</p></div>`,
+  );
 };
 function ring3d(el, items, capEl) {
   const len = items.length,
     N = len * Math.max(1, Math.ceil(8 / len)), // repeat photos so the ring has at least 8 cards
     step = 360 / N,
     W = Math.min(innerWidth * 0.55, 230),
-R = W * 1.55, // bigger ring = cards no longer touch each other
+    R = W * 1.55, // bigger ring = cards no longer touch each other
     AUTO = true; // set false to stop the slow auto-rotation
   el.style.setProperty("--w", W + "px");
-  const pic = (o) => (o.s ? `<img src="${o.s}" draggable="false">` : `<div class="ph">📷</div>`);
+  const pic = (o) =>
+    o.s ? `<img src="${o.s}" draggable="false">` : `<div class="ph">📷</div>`;
   el.innerHTML = `<div class="ring">${Array.from({ length: N }, (_, i) => {
     const o = items[i % len];
     return `<div class="rc" data-i="${i}" style="transform:rotateY(${i * step}deg) translateZ(${R}px)">${pic(o)}<p>${o.t || ""}</p></div>`;
   }).join("")}</div>`;
-  const ring = el.firstChild, cs = [...ring.children];
-  let rot = 0, target = 0, drag = false, sx = 0, sr = 0, moved = false, idle = 0, last = -1;
+  const ring = el.firstChild,
+    cs = [...ring.children];
+  let rot = 0,
+    target = 0,
+    drag = false,
+    sx = 0,
+    sr = 0,
+    moved = false,
+    idle = 0,
+    last = -1;
   const norm = (d) => ((((d + 180) % 360) + 360) % 360) - 180;
   if (capEl) capEl.textContent = "Drag to turn the photos ✨";
 
@@ -352,8 +418,9 @@ R = W * 1.55, // bigger ring = cards no longer touch each other
     if (!drag) rot += (target - rot) * 0.1;
     ring.style.transform = `translateZ(${-R}px) rotateY(${-rot}deg)`;
     cs.forEach((c, i) => {
-const t = Math.abs(norm(i * step - rot)) / step; // distance from the front, in card slots
-c.style.opacity = t <= 1.2 ? 1 : t >= 2.6 ? 0 : 1 - (t - 1.2) / 1.4;    });
+      const t = Math.abs(norm(i * step - rot)) / step; // distance from the front, in card slots
+      c.style.opacity = t <= 1.2 ? 1 : t >= 2.6 ? 0 : 1 - (t - 1.2) / 1.4;
+    });
     const k = ((Math.round(rot / step) % N) + N) % N;
     if (k !== last) {
       if (last !== -1 && capEl) capEl.textContent = items[k % len].t || "";
@@ -363,7 +430,13 @@ c.style.opacity = t <= 1.2 ? 1 : t >= 2.6 ? 0 : 1 - (t - 1.2) / 1.4;    });
   };
   frame();
 
-  el.onpointerdown = (e) => { drag = true; moved = false; sx = e.clientX; sr = rot; idle = Date.now(); };
+  el.onpointerdown = (e) => {
+    drag = true;
+    moved = false;
+    sx = e.clientX;
+    sr = rot;
+    idle = Date.now();
+  };
   el.onpointermove = (e) => {
     if (!drag) return;
     const dx = e.clientX - sx;
@@ -380,16 +453,19 @@ c.style.opacity = t <= 1.2 ? 1 : t >= 2.6 ? 0 : 1 - (t - 1.2) / 1.4;    });
     if (moved) return;
     const c = e.target.closest(".rc");
     if (!c) return;
-    const i = +c.dataset.i, d = norm(i * step - rot);
+    const i = +c.dataset.i,
+      d = norm(i * step - rot);
     if (Math.abs(d) < step / 2) {
       const o = items[i % len];
-      show(`<div class="pz">${pic(o)}${o.n ? `<span class="note">${o.n}</span>` : ""}<p class="s">${o.t || ""}</p></div>`);
+      show(
+        `<div class="pz">${pic(o)}${o.n ? `<span class="note">${o.n}</span>` : ""}<p class="s">${o.t || ""}</p></div>`,
+      );
     } else target = Math.round((rot + d) / step) * step;
   };
   if (AUTO)
     setInterval(() => {
       if (!drag && Date.now() - idle > 4000) target += step;
-    }, 3500);
+    }, 2500);
 }
 ring3d($("gal"), C.gallery, $("galcap"));
 // letters
@@ -435,7 +511,9 @@ function updateBackgroundMusicToggle() {
   const playing = !backgroundAudio.paused;
   const label = playing
     ? "♪ Pause background music"
-    : favoriteSessionActive && resumeBackgroundAfterFavorite && !backgroundMusicManuallyPaused
+    : favoriteSessionActive &&
+        resumeBackgroundAfterFavorite &&
+        !backgroundMusicManuallyPaused
       ? "♪ Background music will resume"
       : backgroundMusicRequested
         ? "♪ Resume background music"
@@ -446,11 +524,17 @@ function updateBackgroundMusicToggle() {
 }
 
 function playBackgroundMusic() {
-  if (!backgroundMusicRequested || backgroundMusicManuallyPaused || favoriteSessionActive || cakeMusicStarted) {
+  if (
+    !backgroundMusicRequested ||
+    backgroundMusicManuallyPaused ||
+    favoriteSessionActive ||
+    cakeMusicStarted
+  ) {
     updateBackgroundMusicToggle();
     return;
   }
-  backgroundAudio.play()
+  backgroundAudio
+    .play()
     .then(updateBackgroundMusicToggle)
     .catch((error) => {
       updateBackgroundMusicToggle();
@@ -560,7 +644,8 @@ $("pp").onclick = () => {
   playFavorite(ti, loadedSongIndex !== ti || au.ended);
 };
 $("nx").onclick = () => playFavorite((ti + 1) % C.songs.length, true);
-$("pv").onclick = () => playFavorite((ti - 1 + C.songs.length) % C.songs.length, true);
+$("pv").onclick = () =>
+  playFavorite((ti - 1 + C.songs.length) % C.songs.length, true);
 $("pl").onclick = (e) => {
   const playButton = e.target.closest("[data-play]");
   if (playButton) {
@@ -575,7 +660,9 @@ $("pl").onclick = (e) => {
 rl();
 
 // gifts
-let gf = 0, allShown = false, wishShown = false;
+let gf = 0,
+  allShown = false,
+  wishShown = false;
 $("jars").innerHTML = C.gifts
   .map((g, i) => `<div class="jar" data-i="${i}">${g.e}</div>`)
   .join("");
@@ -590,13 +677,20 @@ const toast = (m) => {
 };
 
 const showAll = () =>
-  show(`<div class="gift-result"><div class="gift-result__icons">🎁 💖</div><h2>All Mystery Gifts Found ✨</h2><p>The real gift was always you pillu ❤️</p><button class="btn" onclick="closeMd()">Make a Wish 🎂</button></div>`);
+  show(
+    `<div class="gift-result"><div class="gift-result__icons">🎁 💖</div><h2>All Mystery Gifts Found ✨</h2><p>The real gift was always you pillu ❤️</p><button class="btn" onclick="closeMd()">Make a Wish 🎂</button></div>`,
+  );
 
 function closeMd() {
   md.classList.remove("on");
   if (gf < 3) return;
-  if (!allShown) { allShown = true; setTimeout(showAll, 300); }
-  else if (!wishShown) { wishShown = true; step(2); }
+  if (!allShown) {
+    allShown = true;
+    setTimeout(showAll, 300);
+  } else if (!wishShown) {
+    wishShown = true;
+    step(2);
+  }
 }
 
 $("jars").onclick = (e) => {
@@ -610,7 +704,9 @@ $("jars").onclick = (e) => {
   }
   j.classList.add("f");
   $("gc").textContent = ++gf + "/3 gifts found";
-  show(`<div class="gift-result"><div class="gift-result__icons">${g.top}</div><h2>You Found A Mystery Gift ❤️</h2><p>${g.t}</p><div class="gift-result__icons">🎁✨</div><button class="btn" onclick="closeMd()">Opened With Love ✨</button></div>`);
+  show(
+    `<div class="gift-result"><div class="gift-result__icons">${g.top}</div><h2>You Found A Mystery Gift ❤️</h2><p>${g.t}</p><div class="gift-result__icons">🎁✨</div><button class="btn" onclick="closeMd()">Opened With Love ✨</button></div>`,
+  );
 };
 
 // cake
@@ -628,7 +724,9 @@ function buildCake() {
   };
   const xs = [108, 129, 150, 171, 192],
     cols = ["c1", "c2", "c3", "c2", "c1"],
-    base = 166, h = 42, ty = base - h;
+    base = 166,
+    h = 42,
+    ty = base - h;
 
   let candles = "";
   xs.forEach((x, i) => {
@@ -652,17 +750,44 @@ function buildCake() {
   });
 
   let drips = "";
-  [[92,10,22],[108,9,12],[124,11,30],[142,9,14],[158,10,26],[176,9,12],[192,10,20],[204,8,10]].forEach(([x, w, l]) => {
+  [
+    [92, 10, 22],
+    [108, 9, 12],
+    [124, 11, 30],
+    [142, 9, 14],
+    [158, 10, 26],
+    [176, 9, 12],
+    [192, 10, 20],
+    [204, 8, 10],
+  ].forEach(([x, w, l]) => {
     drips += `<rect x="${x}" y="174" width="${w}" height="${l}" rx="${w / 2}" fill="#f7eddd"/>`;
   });
   let berries = "";
-  [[120,172],[136,176],[164,176],[180,172]].forEach(([x, y]) => {
+  [
+    [120, 172],
+    [136, 176],
+    [164, 176],
+    [180, 172],
+  ].forEach(([x, y]) => {
     berries += `<circle cx="${x}" cy="${y}" r="5.6" fill="url(#ck-berry)"/><circle cx="${x - 1.6}" cy="${y - 1.8}" r="1.5" fill="#fff" opacity=".6"/>`;
   });
-  const dots = [[104,170],[112,175],[126,168],[141,172],[158,170],[170,174],[186,169],[196,173],[118,166],[181,176]]
-    .map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1" fill="#d9b676"/>`).join("");
+  const dots = [
+    [104, 170],
+    [112, 175],
+    [126, 168],
+    [141, 172],
+    [158, 170],
+    [170, 174],
+    [186, 169],
+    [196, 173],
+    [118, 166],
+    [181, 176],
+  ]
+    .map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1" fill="#d9b676"/>`)
+    .join("");
 
-  $("cake").innerHTML = `<svg viewBox="0 80 300 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Birthday cake with five candles">
+  $("cake").innerHTML =
+    `<svg viewBox="0 80 300 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Birthday cake with five candles">
   <defs>
     <radialGradient id="ck-gl" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffc96a" stop-opacity=".55"/><stop offset=".5" stop-color="#ffb347" stop-opacity=".18"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
     <radialGradient id="ck-top" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".55"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient>
@@ -712,11 +837,13 @@ ck.querySelectorAll(".candle").forEach((c) => {
 });
 
 const SH = [
-  { s: "images/shayari4.png", t: "" },
-  { s: "images/shayari5.png", t: "" },
-  { s: "images/shayari1.png", t: "" },
-  { s: "images/shayari2.png", t: "" },
-  { s: "images/shayari3.png", t: "" },
+  { s: "images/shayari5.png", t: "@me_siddhesh_" },
+  { s: "images/shayari4.png", t: "@me_siddhesh_" },
+  { s: "images/shayari6.png", t: "@me_siddhesh_" },
+  { s: "images/shayari7.png", t: "@me_siddhesh_" },
+  { s: "images/shayari1.png", t: "@me_siddhesh_" },
+  { s: "images/shayari2.png", t: "@me_siddhesh_" },
+  { s: "images/shayari3.png", t: "@me_siddhesh_" },
 ];
 $("scat").innerHTML = SH.map(
   (o, i) =>
@@ -726,12 +853,21 @@ $("scat").innerHTML = SH.map(
 // drag-to-scroll, same as the gallery
 (function () {
   const el = $("scat");
-  let d = 0, sx = 0, sl = 0, moved = false;
+  let d = 0,
+    sx = 0,
+    sl = 0,
+    moved = false;
   el.onpointerdown = (e) => {
-    d = 1; moved = false; sx = e.clientX; sl = el.scrollLeft;
+    d = 1;
+    moved = false;
+    sx = e.clientX;
+    sl = el.scrollLeft;
     el.style.scrollSnapType = "none";
   };
-  addEventListener("pointerup", () => { d = 0; el.style.scrollSnapType = ""; });
+  addEventListener("pointerup", () => {
+    d = 0;
+    el.style.scrollSnapType = "";
+  });
   el.onpointermove = (e) => {
     if (!d) return;
     if (Math.abs(e.clientX - sx) > 5) moved = true;
@@ -744,12 +880,13 @@ $("scat").innerHTML = SH.map(
   };
 })();
 function step(n) {
-  document.querySelectorAll(".step").forEach((section) => section.classList.remove("on"));
+  document
+    .querySelectorAll(".step")
+    .forEach((section) => section.classList.remove("on"));
   $("s" + n).classList.add("on");
   if (n === 2) startCakeMusic();
   $("fin").scrollIntoView({ behavior: "smooth" });
 }
-// Show the wish message until the user taps to close it.
 document.body.insertAdjacentHTML("beforeend", '<div id="wishOv"></div>');
 function wishOverlay() {
   const o = $("wishOv");
@@ -757,14 +894,23 @@ function wishOverlay() {
   o.innerHTML =
     "<div>" +
     lines
-      .map((l, k) => `<i style="animation-delay:${k * 0.4}s">${l.trim() || "&nbsp;"}</i>`)
+      .map(
+        (l, k) =>
+          `<i style="animation-delay:${k * 0.4}s">${l.trim() || "&nbsp;"}</i>`,
+      )
       .join("") +
     `<i class="hint" style="animation-delay:${lines.length * 0.4 + 1}s">tap anywhere to close ♥</i></div>`;
   o.classList.add("on");
-  requestAnimationFrame(() => requestAnimationFrame(() => o.classList.add("show")));
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => o.classList.add("show")),
+  );
   o.onclick = () => {
     o.onclick = null;
     o.classList.remove("show");
     setTimeout(() => o.classList.remove("on"), 900);
+
+    cakeAudio.pause();
+    cakeMusicStarted = false;
+    playBackgroundMusic();
   };
 }
